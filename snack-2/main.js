@@ -8,43 +8,64 @@
 
 const nomiSquadre = [
   {
-    'nome squadra': 'AC Milan',
+    nome: 'AC Milan',
     punti: 0,
     falli: 0,
   },
 
   {
-    'nome squadra': 'Roma',
+    nome: 'Roma',
     punti: 0,
     falli: 0,
   },
 
   {
-    'nome squadra': 'Atalanta',
+    nome: 'Atalanta',
     punti: 0,
     falli: 0,
   },
 
   {
-    'nome squadra': 'Cagliari',
+    nome: 'Cagliari',
     punti: 0,
     falli: 0,
   },
 ];
 
-console.log(nomiSquadre);
-nomiSquadre.forEach((nome, punti, falli) => {
-  let puntiComm = punti;
-  puntiComm = Math.floor(Math.random(1) * 30);
-  console.log(puntiComm, 'punti ');
+// nomiSquadre.forEach((punti, falli) => {
+//   let puntiComm = punti;
+//   puntiComm = Math.floor(Math.random(1) * 30);
+//   console.log(puntiComm, 'punti ');
 
-  let falliComm = falli;
-  falliComm = Math.floor(Math.random(1) * 10);
-  console.log(falliComm, 'falli commessi');
+//   let falliComm = falli;
+//   falliComm = Math.floor(Math.random(1) * 10);
+//   console.log(falliComm, 'falli commessi');
+// });
+
+// genera punti e falli con numeri a random
+nomiSquadre.forEach((team) => {
+  team.falli = Math.floor(Math.random(1) * 10);
+  team.punti = Math.floor(Math.random(1) * 30);
 });
 
-// for (let i = 0; i < nomiSquadre.length; i++) {
-//   let punti = nomiSquadre[i];
-//   punti[i] = Math.floor(Math.random(1) * 30);
-//   console.log(punti);
-// }
+console.log(nomiSquadre);
+
+// modi per destrutturare
+
+// const result = nomiSquadre.map((team) => {
+//   const { nome, falli } = team;
+
+//   return {
+//     nome,
+//     falli,
+//   };
+// });
+
+const result = nomiSquadre.map(({ nome, falli }) => {
+  return {
+    nome,
+    falli,
+  };
+});
+
+console.log(result);
